@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lec 01 - Welcome</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lec 01 - Welcome
+]
+.subtitle[
+## <br/> COMPUTATIONAL METHODS FOR STATISTICS (DASC/MATH-5345)
+]
+.author[
+### 
+]
+.date[
+### <br/> Dr. Zheng Wei
+]
+
+---
+
+exclude: true
+
+
+
+---
+class: middle, center
+
+# Course Details
+
+---
+
+## Instrutor
+
+### Dr. Zheng Wei
+*  Email - zheng.wei@tamucc.edu
+
+* GitHub page - https://zweistat.github.io/
+
+---
+
+## Course materials
+
+* Canvas - canvas.tamucc.edu 
+  - HTML, or PDF of Slides in each week's learning module
+  - Readings
+  - Links to course tools
+  - Announcements
+  - Gradebook
+  - Zoom recordings available for DASC - 5345 online session
+
+---
+
+## Your duty
+
+- Attendance is expected
+
+- Opportunity to work on course assignments
+
+- First week topic 
+  - Basic usage of Jupyter Lab
+  - Git / GitHub configuration and usage
+
+---
+
+## Announcements
+
+Will be posted on announcement and sent via email, be sure to check both regularly.
+
+---
+
+## Grading
+
+This course is assessed 100% on your coursework (there is no final exam). We will be assessing you based on the following assignments,
+
+&lt;br/&gt;&lt;br/&gt;
+
+|Assignment|Type      |Value  | n  |Assigned             |
+|:---------|:---------|:------|:---|---------------------|
+|Attendence|          |5%     |    |  Every class        |
+|Homeworks |Individual/Team|50%    | 7  |  Every other week   |
+|Midterms  |Individual|30%    | 2  |  TBA (will be announced two weeks ahead) |
+|Project   |Team      |15%    | 1  |  Week 10            | 
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Teams --&gt;
+
+&lt;!-- * Team assignments --&gt;
+&lt;!--   + Roughly biweekly assignments --&gt;
+&lt;!--   + Open ended --&gt;
+&lt;!--   + 5 - 20 hours of work --&gt;
+&lt;!--   + Peer evaluation after completion --&gt;
+
+&lt;!-- * Expectations and roles --&gt;
+&lt;!--     + Everyone is expected to contribute equal *effort* --&gt;
+&lt;!--     + Everyone is expected to understand *all* code turned in --&gt;
+&lt;!--     + Individual contribution evaluated by peer evaluation, commits, etc. --&gt;
+
+---
+
+## Collaboration policy
+
+- Only work that is clearly assigned as team work should be completed collaboratively (Project). 
+
+- Individual assignments (Midterms) must be completed individually, you may not directly share or discuss answers / code with anyone other than the myself.
+
+- On Homeworks you should not directly share answers / code with other teams in this class, however you are welcome to discuss the problems in general and ask for advice.
+
+
+---
+
+## Academic integrity
+
+&gt; - I will not lie, cheat, or steal in my academic endeavors;
+&gt; - I will conduct myself honorably in all my endeavors; and
+&gt; - I will act if the Standard is compromised.
+
+---
+class: center, middle
+
+# Course Tools
+
+---
+
+## Jupyter Lab
+
+.center[
+.large[Data Science Server - http://datascience.tamucc.edu]
+]
+
+- Browser based + Provides consistency in hardware and software environments
+
+- Local Python / Jupyter installations are fine but we will not guarantee support
+
+
+---
+
+## Local Python + Jupyter
+
+If working locally you should make sure that your environment meets the following requirements:
+
+* Recent Python (3.9 or newer) with working pip (or equivalent)
+
+* Recent jupyterlab (3.2 or newer)
+
+* working git installation ([jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) recoommended)
+
+* ability to create ssh keys (for GitHub authentication)
+
+* Packages updated to their latest version (assignments will include `requirements.txt` when needed)
+
+---
+
+## Username advice
+
+Some brief advice about selecting your account names (particularly for GitHub),
+
+- Incorporate your actual name! People like to know who they’re dealing with. Also makes your username easier for people to guess or remember.
+
+- Reuse your username from other contexts, e.g., Twitter or Slack.
+
+- Pick a username you will be comfortable revealing to your future boss.
+
+- Shorter is better than longer, but be as unique as possible.
+
+- Make it timeless. Avoid highlighting your current university, employer, &lt;br/&gt;or place of residence.
+
+
+---
+## Git and Gitlab
+
+* make sure you can login in to the https://datascience.tamucc.edu
+
+* make sure you can login in to the https://gitlab2.tamucc.edu
+
+---
+## Git basics
+
+* git --version
+* git status
+* git init
+
+---
+## terminals
+
+* cd and cd ..
+* touch
+* mkdir
+* ls
+
+
+---
+## Config git
+
+* git config --global user.name "Zheng Wei"
+* git config --global user.email "zheng.wei@tamucc.edu"
+* git config --global --list
+
+This will help anyone looking at the changes in the repository see who has made them
+
+---
+## git commit
+
+- Main ideas
+a commit is a snapshot of the repository at a point in time
+
+steps to create a commit:
+
+* Step 1. create a new file or modify an existing one
+* Step 2. stage the file by running git add &lt;FILE NAME&gt;
+* Step 3. commit the file by running git commit -m "Message"
+
+---
+## git commit
+
+You change some 
+* git add
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
