@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lec 01 - part 2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lec 01 - part 2
+]
+.subtitle[
+## <br/> Introduction to Git and Gitlab (DASC/MATH-5345)
+]
+.author[
+### 
+]
+.date[
+### <br/> Dr. Zheng Wei
+]
+
+---
+
+exclude: true
+
+
+
+---
+class: middle, center
+
+
+# Introduction to Git for GitLab
+
+## Unit 1 - Introduction to Git
+
+---
+### Lesson 1 - Welcome
+
+#### - Main ideas
+
+- Here is a quick overview of what we will learn:
+* Git basics
+* viewing the change history
+* creating and merging branches
+* working with remote repositories
+* creating merge requests
+* resolving conflicts
+
+
+---
+### Lesson 2 - Prerequisites
+
+#### 💡 - Main ideas
+- you need to have Git installed on your computer
+- check if Git is installed by using this command: 
+`git --version`
+
+#### 📚 - Resources
+
+* [Git installation instructions](https://git-scm.com/​)
+* [Setup Git for Windows 10](https://www.youtube.com/watch?v=Vmt0V6a3ppE&amp;t=36s)
+* [Setup Git for macOS](https://www.youtube.com/watch?v=_qDJ0W1wR5w&amp;t=33s)
+* [Setup Git for Linux](https://www.youtube.com/watch?v=iXuIp5uNnLk&amp;t=22s)
+
+
+---
+
+### Lesson 3 - Creating a Git repository
+
+#### 💡 - Main ideas
+- a repository is a place that stores something
+- a Git repository stores files and keeps track of any changes
+- we want to be able to keep track of all changes, to see who has made them and, if needed, have the possibility to revert to a previous version
+- to create a new Git repository run this command inside an empty folder:
+```
+mkdir myweek1proj
+cd 
+git init
+```
+- `git init` has created a hidden folder called `.git` which stores the repository
+- use `git status` to check the current status of the repository
+
+---
+### Lesson 4 - Configuring Git
+
+#### 💡 - Main ideas
+- to identify who has made a specific change, we need to configure our name and email
+
+```
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+```
+
+- this will help anyone looking at the changes in the repository see who has made them
+```
+git config --list
+```
+to print the config
+
+
+
+---
+### Lesson 5 - Your first Git commit
+
+#### 💡 - Main ideas
+- a commit is a snapshot of the repository at a point in time
+- steps to create a commit:
+* create a new file or modify an existing one
+* stage the file by running `git add &lt;FILE NAME&gt;`
+* commit the file by running `git commit -m "Message"`
+
+---
+### Lesson 6 - Git staging explained
+
+#### 💡 - Main ideas
+- the staging process allows us to select which files we want to commit
+- to add all changes to a commit you can use `git add .` or `git add --all`
+
+---
+### Lesson 7 - Unstaging changes
+
+#### 💡 - Main ideas
+- if you wish to unstage a file, you can use the command:
+```
+git reset HEAD &lt;FILE&gt;
+```
+
+---
+### Lesson 8 - Viewing changes with git log
+
+#### 💡 - Main ideas
+- use the `git log` command to view a list of changes
+- use `git log --patch` for a more detailed history
+
+---
+### Lesson 9 - Committing a folder
+
+#### 💡 - Main ideas
+- you cannot commit an empty folder with Git
+- to have a folder tracked by Git, add an emtpy file called `.gitkeep`
+- `.gitkeep` is just a convention, not a rule.
+
+---
+### Lesson 10 - Deleting files
+
+#### 💡 - Main ideas
+
+- to delete a file it depends if it is tracked or untracked
+- to delete a file tracked by Git, you need to remove it from the file system and commit this change
+```
+git add .
+```
+
+
+---
+### Lesson 11 - The .gitignore file
+
+#### 💡 - Main ideas
+
+- not all files need to be stored in Git but need to be part of the folder used with Git
+- example for a `.gitignore` file:
+```
+node_modules/
+```
+- this works only for files that have not been committed already
+
+---
+### Lesson 12 - Creating a branch
+
+#### 💡 - Main ideas
+- branching helps you divert from the main development work
+- branches are often prefixed with `feature`, `bugfix`, `hotfix` etc.
+- create a new branch with: `git checkout -b &lt;BRANCH NAME&gt;`
+- to switch back to master/main run: `git checkout master`
+- to delete a branch run: `git branch -d &lt;BRANCH NAME&gt;`
+
+---
+### Lesson 13 - Merging a branch (fast forward)
+
+#### 💡 - Main ideas
+- you have to be inside the branch where you want to have the result of the merge (typically the master/main branch)
+- the command you use is `git merge &lt;BRANCH YOU WISH TO MERGE&gt;`
+- verify the command output says "fast-forward merge"
+- use `git log` to view the commits added
+
+---
+### Lesson 14 - Merging a branch (recursive)
+
+#### 💡 - Main ideas
+- if you continue making changes in the master branch after the point in time the branch is created, a fast-forward merge is no longer possible.
+- git merge will try to merge the branches even if they have different parents
+
+---
+### Lesson 15 - Rebasing commits
+
+#### 💡 - Main ideas
+- we often try to avoid merge commits to keep the history clean
+- you run rebase on the branch you want to sync with the master/main branch
+- `git rebase master`
+
+---
+### Lesson 16 - Resolving merge conflicts
+
+#### 💡 - Main ideas
+- merge conflicts are one of the most annoying things in Git
+- they are a normal occurrence but they still cause a lot of frustration.
+- you can abort a merge: `git merge --abort`
+- you can get a merge conflict when rebasing as well
+- I recommend resolving conflicts in VSC or other IDEs.
+
+---
+### Lesson 17 - Working with remote repositories
+
+#### 💡 - Main ideas
+- Git is a distributed versioning system
+- We can have local repositories, but we can also have remote repositories
+- we often use remote repositories like GitLab, GitHub, Bitbucket to collaborate with others the project, to share changes
+- GitLab also has an integrated tool called GitLab CI, which allows you to test and deploy software
+- you need a GitLab.com account which is free to create
+- create new repo
+- origin &lt;- alias for the remote repository
+- setup ssh key
+
+#### 📚 - Resources
+
+* [Setup SSH key for Windows 10](https://youtu.be/Vmt0V6a3ppE?t=280)
+* [Setup SSH key for macOS](https://youtu.be/_qDJ0W1wR5w?t=369)
+* [Setup SSH key for Linux](https://youtu.be/iXuIp5uNnLk?t=270)
+
+---
+- setup ssh key
+create a ssh key
+
+`ssh-keygen`
+
+and in folder ~/.ssh print the file `id_rsa.pub`
+
+copy and paste it into gitlab (click your photo and user settings, find SSH Keys)
+
+https://gitlab2.tamucc.edu/
+
+- `git remote -v` # show all remote 
+
+---
+
+
+### Lesson 18 - Pushing changes to a remote repository
+
+#### 💡 - Main ideas
+- commits are not automatically sent to the remote repository
+- to push changes use `git push`
+- example for pushing the master branch: `git push origin master`
+
+---
+### Lesson 19 - GitLab web interface
+
+#### 💡 - Main ideas
+- GitLab web interface allows you to view the Git repository
+- you can also:
+* view the commit history
+* view files (raw, rendered)
+* edit files
+* view different branches
+* add file, upload files
+* create a branch
+
+---
+### Lesson 20 - Making a commit through the GitLab web interface
+
+#### 💡 - Main ideas
+- you can make changes and commit them through the GitLab interface
+- click on "Edit" on any file and you can change it
+- open the WebIDE for a more advanced editor
+
+---
+### Lesson 21 - Pulling changes from a remote repository
+
+#### 💡 - Main ideas
+- you can pull changes with `git pull`
+- example: `git pull origin master`
+- use `git pull --rebase` to rebase any unpushed commits
+- pull and rebase often to avoid merge conflicts
+- short-lived branches work best and reduce complexity, keep them as small as possible
+
+---
+### Lesson 22 - Resolving conflicts with remote repositories
+
+#### 💡 - Main ideas
+- if the remote repository contains changes you don't have you cannot push any commits
+- pulling changes may conflict with your own commits (similar to merging a branch)
+
+#### 💡 - hard reset
+- `git reset --hard origin/master`
+
+---
+### Lesson 23 - Rebasing while pulling changes
+
+#### 💡 - Main ideas
+- use `git pull --rebase` to rebase local changes with remote changes
+- example: `git pull origin master --rebase`
+
+
+---
+### Lesson 24 - Cloning a remote repository
+
+#### 💡 - Main ideas
+- cloning refers to the action o creating an exact copy of an existing Git repository
+- the command is: `git clone &lt;REPOSITORY LOCATION&gt;`
+
+---
+### Lesson 25 - Working with merge requests
+
+#### 💡 - Main ideas
+- a merge request is a way to review and integrate changes into the master branch
+
+---
+### Lesson 26 - Conclusion
+
+#### 💡 - Main ideas
+- spend more time practicing the concepts demonstrated until you get used to them
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-light",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
